@@ -1,0 +1,458 @@
+/*  apply a natural box layout model to all elements  */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+//Hamburger button is hidden on screens larger than 65 rem or 1040px
+
+#hamburgerBtn { 
+    display: hidden; 
+
+} /* hide the navigation button for all screen widths. We will show it below just for small screens */
+
+
+
+//FONT FAMILY CSS
+
+@font-face {
+    font-family: "Bembo-std";
+    src: url("../Fonts/bembo-std_6601-webfont.eot");
+    src: url('../Fonts/BemboStd.otf')
+            format('opentype');
+    }
+
+@font-face {
+    font-family: "Biko-std";
+    src: url("../Fonts/biko_regular-webfont.eot");
+    src: url('../Fonts/Biko.otf')
+            format('opentype');
+
+    }
+
+@font-face {
+    font-family: "Biko-black";
+    src: url("../Fonts/biko_black-webfont.eot");
+    src: url('../Fonts/Biko-Black.otf')
+            format('opentype');
+    src: url('../Fonts/biko_black-webfont.ttf')
+            format('truetype');
+    }
+
+
+/* FONT STYLING FOR SMALL SCREENS*/
+
+
+@media only screen and (max-width: 450px) {
+//This media query is to allow the .headertxt div to be 100% width on...
+//screens under 450 pixels 
+.headertxt {
+    width:100%;
+    max-width:100%;
+}
+.headertxt h2 {
+    font-family: "Biko-black" !important;
+}
+.headertxt p {
+    font-family: "Bembo-black";
+}
+} //End of media Query for FONT STYLING for small screens
+
+
+
+
+/* Styling for the Dynamic Photo Div (Carries across all Style Sheets)*/
+header {
+    height:auto;
+}
+.row {
+    display: flex;
+    justify-content: space-around;
+    height:auto;
+}
+.column {
+    flex: 33.33%;
+    margin: .5%;
+    padding:0;
+    height:auto;
+
+}
+
+#Photos {
+    width: 98%;
+    margin: 1% auto;
+    row-gap:.5%;
+}
+.image {
+    cursor: pointer;
+    max-width: 300px;
+    max-height: 300px;
+    height: auto;
+}
+.image:hover, .close:hover {
+    opacity: 0.7;
+}
+
+div#userHeader {
+    font-family: "Biko-std";
+    padding-right:2%;
+}
+
+
+//BUTTON STYLING FOR USER LINKS
+
+div#userLink a{
+    text-decoration: none;
+    background:white;
+    border: $lightGrey solid 1px;
+    padding:.5rem 1rem;
+    border-radius:6px;
+    color:$menuColor;
+    font-family: "Biko-std";
+    box-shadow: $lightGrey 5px 4px 3px;
+    border: $lightGrey .5px solid;
+
+}
+div#userImg {
+    box-shadow: $menuColor 3px 3px 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1000px){   
+
+
+/*    MODAL & USER INFORMATION CSS RULES    */
+
+
+//------------------------------------------------------------------
+
+//------------------------------------------------------------------
+
+#user_name {
+    font-weight: bold;
+    font-family: "Biko-black";
+    font-size: 200%;
+    text-align: center;
+    margin-top:8%;
+}
+
+#userLink {
+    margin:0 auto;
+    font-size: 175%;
+    padding-top: 5%;
+    padding-left: 0%;
+    margin-bottom:5%;
+}
+#userLink a {
+    font-size: 80%;
+}
+
+#userText {
+    font-size: 130%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+    text-align:center;
+}
+
+#userHeader {
+    height:auto;
+    padding-bottom: 3%;
+    padding-left: 0%;
+    padding-top: 25%;
+    border-bottom: solid 3px #e4eaf5;
+    display:flex;
+    flex-direction: column;
+}
+
+
+#Photos {
+    width: 100%;
+    margin: auto;
+    padding-top: 1%;
+}   
+
+#userImg {
+    margin:0 auto;
+    padding-top:30%;
+    border-radius:50%;  
+    height: 200px;
+    width: 200px;
+    background-position: center;
+}  
+
+#icon {
+    border-radius: 50%;
+    max-width: 100px;
+    max-height: 100px;
+    margin-bottom: 5%;
+    background-position: center;
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 125px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/*Background container*/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(10, 10, 10, 0.5); /* Black w/ opacity */
+    max-height: 100%;
+    font-size: 30pt;
+    overflow-y: auto;
+}
+#mpDiv {
+    /*Foreground Container*/
+    margin-top: 1%;
+    width: 100%;
+    max-height: 100vh;
+    background-color:white;
+    display: flex;
+    border-radius: 1px;
+    flex-direction: column;
+}
+
+#userDiv {
+    display: flex;
+    flex-direction: row;
+    font-size:60%;
+    padding-left: 0;
+    padding-top: 3%;
+    border-bottom: solid 2px #e4eaf5;
+}
+
+#userName {
+    padding-top: 10%;
+    width:100%;
+    text-align:center;
+    color:$menuColor;
+    font-family: "Biko-black";
+}
+
+
+#mImg {
+    margin:0 auto;
+    height: auto;
+    width:60%;
+    border-radius: 2;
+    margin-top: -3%;
+}
+
+#title {
+    margin-top: -3%;
+    text-align: center;
+}
+
+#content {
+    margin-top: 4%;
+    padding-left: 3%;
+    padding-right: 3%;
+    width:100%;
+    text-align:center;
+    border-bottom: solid 2px #e4eaf5;
+    padding-bottom: 4%;
+}
+
+#link {
+    padding-top: 0%;
+    text-align: center;
+    padding-bottom: 4%;
+}
+span.close {
+    padding-left:100%;
+    font-size:120%;
+    margin-top:-5%;
+    margin-right:1%;
+    color: $menuColor;
+    width:100%;
+    text-align:right;
+}
+
+p#tFormat {
+    color: $menuColor;
+    font-family: "Biko-std";
+    margin-top:4%;
+    font-size:40%;
+}
+
+div#cFormat{
+    font-family: "Biko-std";
+    padding:0;
+    padding-left:0;
+    margin:0 auto;
+    font-size:35%;
+    padding: 0 2%;
+    width:100%;
+}
+div#lFormat {
+    margin-bottom:2rem;
+}
+div#lFormat a{
+    text-decoration: none;
+    background:$anouLightBlue;
+    border: $lightGrey solid 1px;
+    padding:.5rem 6rem;
+    border-radius:6px;
+    color:$menuColor;
+    font-family: "Biko-std";
+    box-shadow: $menuColor 5px 4px 3px;
+    font-size:40%;
+    margin-bottom:1rem;
+}
+
+
+/*     NAVIGATION CSS RULES    */
+
+
+
+//------------------------------------------------------------------
+
+//------------------------------------------------------------------
+
+
+// places the navigation bar at the top of the page
+nav.clearfix {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 4rem;
+    background-color: $menuColor;
+}ƒ
+
+//Styling the Span that the hamburger button is housed in
+button#hamburgerBtn.tr {
+    margin-top:1rem;
+    margin-bottom:1rem;
+    min-width:80px;
+    
+}
+//Styles the clickable hamburger button
+#hamburgerBtn {
+    outline: none !important; //Removes default outline once the button is clicked
+    box-shadow: none !important; //Removes default outline once the button is clicked
+    display: flex;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    background: none;
+    color: $white;
+    border: 0 none;
+    font-size: 1.3rem;
+    font-family: "Bembo";
+    font-weight: normal;
+    padding-right:1rem;
+
+    //NESTED STYLE: used to enlarge an entity to match any words that may also be used, like OPEN
+    span {
+        width:2rem;
+    }
+    i {
+        max-height:3rem;
+        font-size: 3rem; 
+        font-style: normal;
+        padding:1rem;
+        padding-left:.1rem;
+        padding-bottom: 4px;
+    }
+    
+}
+
+
+// These lines show and hide the two alternate icons for the open and close hamburger
+#hamburgerBtn.open span:nth-child(1) {display: block;}
+#hamburgerBtn.open span:nth-child(2) {display: none;}
+#hamburgerBtn span:nth-child(1) {display: none;}
+#hamburgerBtn span:nth-child(2) {display: block;}
+
+
+// unordered list Navigation Bar --------------------------------------------------------
+ul#primaryNav {
+    height: 0; //hides the nav links 
+    overflow: hidden;
+    width: 100%;
+    background-color: rgba(73, 73, 73, 0.829);
+    margin: 0;
+    padding: 0;
+    z-index: 999; // places the links above the page content
+    font-weight: normal;
+}
+
+// if the site has a class of active added to any list itme then it is darkened for "Wayfinding"
+#primaryNav li.current-menu-item a {background-color: rgba(0,0,0,0.25);}
+
+// style the anchors
+#primaryNav li a {
+    display: block; // shows the nav links
+    width: 100%;
+    padding: 1rem 2vw;
+    font-size: 20px;
+    text-align:center;
+    font-family: "Biko-black";
+    text-shadow: -1px -1px 0 rgba(0,0,0,.15);
+    color: $white;
+    text-decoration: none;
+    border-top: 1px solid rgba(0,0,0,.2);
+}
+
+// when hovering over any menu item or sub menu item darken by 5%
+#primaryNav li a:hover {
+    background-color: rgba(0,0,0,.5);
+}
+
+// Toggle the navigation bar to expand down when the javascript assigns the "open" class
+#primaryNav.open {
+    padding-top:3rem;
+    height: 100vh;
+}
+
+
+//hide the sub menu unordered list by default
+#primaryNav li ul {
+    display: none;
+    background: rgba(73, 73, 73, 0.877);
+    color:white;
+    padding: 0;
+    margin: 0;
+}
+
+// styles the sub menu anchors just a bit
+ul#primaryNav li ul a {
+    padding-left: 20px;
+}
+
+//display the sub menu unordered list on touch or hover
+#primaryNav li:hover ul {display: block;}
+
+// style the sub menu items
+#primaryNav ul.nestedul li {
+    padding:1rem;
+}
+
+
+
+
+} //END OF MEDIA QUERY FOR @media (max-width: 699px)
